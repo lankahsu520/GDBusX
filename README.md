@@ -30,13 +30,36 @@ Run an example and read it.
 ## 7.1. TestCase A
 
 ```c
-<method name="SetNameAge">
-  <arg name="name" type="s" direction="in"/>
-  <arg name="age" type="i" direction="in"/>
-  <arg name="response" type="s" direction="out"/>
-</method>
+<interface name="com.github.lankahsu520.agent">
+  <method name="SetNameAge">
+    <arg name="name" type="s" direction="in"/>
+    <arg name="age" type="i" direction="in"/>
+    <arg name="response" type="s" direction="out"/>
+  </method>
+</interface>
 
-GDBUSX_METHOD_COMPLETE(GDBUSX_IFAC_FUNC_AGENT, _set_name_age)(object, invocation, retStr);
+Client:
+  GDBUSX_METHOD_SYNC(GDBUSX_IFAC_FUNC_AGENT, _set_name_age)((GDBUSX_OBJECT_AGENT*)gbusx_req->g_proxy, arg_name, arg_age, &out_response, NULL, &g_err);
+
+Server:
+  GDBUSX_METHOD_COMPLETE(GDBUSX_IFAC_FUNC_AGENT, _set_name_age)(object, invocation, retStr);
+
+```
+
+```c
+<interface name="com.github.lankahsu520.boss">
+  <method name="SetNameAge">
+    <arg name="name" type="s" direction="in"/>
+    <arg name="age" type="i" direction="in"/>
+    <arg name="response" type="s" direction="out"/>
+  </method>
+</interface>
+
+Client:
+  GDBUSX_METHOD_SYNC(gbusx_IFAC_FUNC_BOSS, _set_name_age)((gbusx_OBJECT_BOSS*)gbusx_req->g_proxy, arg_name, arg_age, &out_response, NULL, &g_err);
+
+Server:
+  GDBUSX_METHOD_COMPLETE(gbusx_IFAC_FUNC_BOSS, _set_name_age)(object, invocation, retStr);
 
 ```
 
