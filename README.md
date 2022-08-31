@@ -68,7 +68,12 @@ Server:
   <arg name="greeting" type="s"/>
 </signal>
 
-gbusx_signal_int(gbusx_req, "bonjour", gbusx_signal_Agent_Bonjour_cb);
+Client:
+  gbusx_signal_int(gbusx_req, "bonjour", gbusx_signal_Agent_Bonjour_cb);
+
+Server:
+  GDBUSX_SIGNAL_EMIT(GDBUSX_IFAC_FUNC_AGENT, _bonjour)((GDBUSX_OBJECT_AGENT*)gbusx_req->g_skeletion, greeting);
+
 ```
 
 ### 7.1.1. Method
