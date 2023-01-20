@@ -71,7 +71,9 @@ CLEAN_LIBS = $(LIBXXX_A) $(LIBXXX_SO) $(LIBXXX_MOD)
 
 #** Target (CLEAN_BINS) **
 CLEAN_BINS += \
-							gdbusx_123
+							gdbusx_123 \
+							server \
+							client
 
 # cpp
 CLEAN_BINS += \
