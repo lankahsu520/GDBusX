@@ -1,9 +1,10 @@
 # 1. Overview
-gdbusx provides simple GDBus APIs.
 
-Please edit your  *.xml, run gdbus-codegen to generate C code. Then merge into your project and communicate between applications over GDBus.
-
-You just need to create client/server source codes and link with libgdbusx.so.
+> gdbusx provides simple GDBus APIs.
+>
+> Please edit your  *.xml, run gdbus-codegen to generate C code. Then merge into your project and communicate between applications over GDBus.
+>
+> You just need to create client/server source codes and link with libgdbusx.so.
 
 ```mermaid
 flowchart LR
@@ -24,21 +25,27 @@ flowchart LR
 
 # 2. Depend on
 
-- [utilx9](https://github.com/lankahsu520/utilx9)
+#### - [utilx9](https://github.com/lankahsu520/utilx9)
 
 # 3. Current Status
 
 
 
 # 4. Build
-   ```
+   ```bash
+$ cd /work/codebase/lankahsu520/utilx9
+$ . confs/simple_x86.conf
+$ make; make install
+$ export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH
+
+$ cd /work/codebase/lankahsu520/CvsCPPmixer
 $ make
    ```
 
 # 5. Example or Usage
-- gdbusx_123 - gdbusx example.
+#### - gdbusx_123 - gdbusx example.
 
-- client - client example.
+#### - client - client example.
 
 ```bash
 $ ./client
@@ -64,7 +71,7 @@ $ ./client
 [10054/10054] main:456 - Bye-Bye !!!
 ```
 
-- server - server example.
+#### - server - server example.
 
 ```bash
 $ ./server
@@ -90,7 +97,7 @@ $ ./server
 
 # 6. License
 
-gdbusx is under the New BSD License (BSD-3-Clause).
+> gdbusx is under the New BSD License (BSD-3-Clause).
 
 
 # 7. Documentation
