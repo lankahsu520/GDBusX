@@ -1,1 +1,1 @@
-include $(PJ_MK_USER_LIB)
+include $(PJ_MK_LIBRARY_INIT)
